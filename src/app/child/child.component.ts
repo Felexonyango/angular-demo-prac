@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input,Output, OnDestroy, OnInit, EventEmitter } from '@angular/core';
 import { ParentComponent } from '../parent/parent.component';
 import { Subscription } from 'rxjs';
 
@@ -8,14 +8,18 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./child.component.css']
 })
 export class ChildComponent implements OnDestroy,OnInit  {
- 
-  @Input() message!: string;
+  @Input() title!:string
+  @Output() newtitle =new EventEmitter<string>()
 
   constructor() {}
   ngOnDestroy() {
     console.log('child component is destroyed');
   }
   ngOnInit() {
-  console.log(this.message,'this is child component')
+    
+  }
+
+  addMethod(value:string) {
+    this.newtitle.emit(value);
   }
 }

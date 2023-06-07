@@ -8,12 +8,10 @@ import { Subject } from 'rxjs';
 })
 export class ParentComponent {
 //emits values to child component
-
-  @Output() messageEvent =new EventEmitter<string> ();
-  
-  parentMessage!:string
-  sendMessage() {
-    this.parentMessage = 'Hello from parent!';
-    this.messageEvent.emit(this.parentMessage);
+  parentMessage="Parent title changed"
+  titles =["A", "B"]
+  addTitle(newTitle:string){
+    this.titles.push(newTitle)
+    console.log(newTitle,'test data')
   }
 }
