@@ -8,8 +8,10 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./child.component.css']
 })
 export class ChildComponent implements OnDestroy,OnInit  {
-
+  @Output() buttonClick =new EventEmitter<string>()
   @Output() newtitle =new EventEmitter<string>()
+  @Input() message!:string
+
   // Output properties (@Output()) allow the child component to emit events to notify
   //  the parent component about certain actions or changes. The child component can 
   //  define custom events using EventEmitter,
@@ -28,4 +30,11 @@ export class ChildComponent implements OnDestroy,OnInit  {
   addMethod(value:string) {
     this.newtitle.emit(value);
   }
+
+
+  submitHandler(){
+  this.buttonClick.emit();
+}
+
+
 }

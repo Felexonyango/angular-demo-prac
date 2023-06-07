@@ -7,11 +7,17 @@ import { Subject } from 'rxjs';
   styleUrls: ['./parent.component.css']
 })
 export class ParentComponent {
-
+  parentMessage = 'Hello from the parent component!';
   titles =["A", "B"]
 
   addTitle(newTitle:string){
     this.titles.push(newTitle)
     
   }
+
+  handleClick(){
+    console.log("handleClick successfully")
+  }
+
+
 }

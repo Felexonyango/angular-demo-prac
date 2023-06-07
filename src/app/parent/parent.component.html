@@ -2,4 +2,10 @@
 <ul>
   <li *ngFor="let title of titles">titles:{{ title }}</li>
 </ul>
-<app-child (newtitle)="addTitle($event)"></app-child>
+<app-child 
+(newtitle)="addTitle($event)"
+(buttonClick)="handleClick()"
+[message]="parentMessage"
+></app-child>
+
+
