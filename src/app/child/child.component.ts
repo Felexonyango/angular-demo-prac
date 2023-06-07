@@ -8,17 +8,23 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./child.component.css']
 })
 export class ChildComponent implements OnDestroy,OnInit  {
-  @Input() title!:string
-  @Output() newtitle =new EventEmitter<string>()
 
+  @Output() newtitle =new EventEmitter<string>()
+  // Output properties (@Output()) allow the child component to emit events to notify
+  //  the parent component about certain actions or changes. The child component can 
+  //  define custom events using EventEmitter,
+  //  and the parent component can listen to these events and react accordingly.
   constructor() {}
-  ngOnDestroy() {
-    console.log('child component is destroyed');
-  }
+
+  // In summary, input properties are used when passing data from parent to child,
+  //  while output properties are used when emitting events from child to parent
   ngOnInit() {
     
   }
-
+  
+  ngOnDestroy() {
+   
+  }
   addMethod(value:string) {
     this.newtitle.emit(value);
   }
