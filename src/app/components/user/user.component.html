@@ -1,0 +1,8 @@
+
+
+<div>
+  <ul>
+    <li *ngFor="let user of filteredUsers">{{user.name}}</li>
+  </ul>
+
+  <app-search-component  (searchEvent)="search($event)"></app-search-component>
